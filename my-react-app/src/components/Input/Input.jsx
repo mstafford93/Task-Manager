@@ -4,22 +4,25 @@ import './Input.css'
 const Input = () => {
     const [task, setTask] = useState('');
     const [completeBy, setCompleteBy] = useState('');
-    const taskArray = [];
+    const [taskArray, setTaskArray] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        taskArray.push({task, completeBy});
+        if (!task || !completeBy) {
+            alert('Please enter a task and completion date');
+            return; //Stops empty task or completeBy from being added to the array
+        }
+        setTaskArray([...taskArray, {task, completeBy}]);
         setTask('');
         setCompleteBy('');
         console.log(taskArray);
-        
     };
 
     return (
         <div className='input'>
             <label htmlFor="task">Task:</label>
             <input 
-                type="text" 
+                type="text"
                 placeholder="Enter task..." 
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
