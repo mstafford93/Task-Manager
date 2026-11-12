@@ -4,9 +4,9 @@ import Header from './components/Header/Header.jsx';
 
 function App() {
   const people = [
-    { id: 1, name: 'Matthew Stafford', email: 'matthew@example.com' },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
-    { id: 3, name: 'Bob Johnson', email: 'bob@example.com' }
+    { id: 1, name: 'Matthew Stafford', email: 'matthew@example.com', isStudent: false },
+    { id: 2, name: 'Jane Smith', email: 'jane@example.com', isStudent: true },
+    { id: 3, name: 'Bob Johnson', email: 'bob@example.com', isStudent: false }
   ];
   return (
     <>
