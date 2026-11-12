@@ -4,11 +4,15 @@ import './Input.css'
 const Input = () => {
     const [task, setTask] = useState('');
     const [completeBy, setCompleteBy] = useState('');
+    const taskArray = [];
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Task:', task);
-        console.log('Complete By:', completeBy);
+        taskArray.push({task, completeBy});
+        setTask('');
+        setCompleteBy('');
+        console.log(taskArray);
+        
     };
 
     return (
@@ -23,7 +27,6 @@ const Input = () => {
             <label htmlFor="completeBy">Complete By:</label>
             <input 
                 type="date" 
-                placeholder="Enter complete by..." 
                 value={completeBy}
                 onChange={(e) => setCompleteBy(e.target.value)}
             />
