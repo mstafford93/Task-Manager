@@ -1,6 +1,7 @@
 import Card from './components/Card/Card.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Header from './components/Header/Header.jsx';
+import Input from './components/Input/Input.jsx';
 
 function App() {
   const people = [
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
     <Header />
+    <Input />
     {people.map((person) => (
       <Card key={person.id} people={person} />
     ))}
