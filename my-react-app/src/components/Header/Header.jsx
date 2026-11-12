@@ -1,8 +1,9 @@
 import React from 'react'
+import './Header.css'
 
 const Header = () => {
   return (
-    <div>
+    <div className='header'>
       <h1>Heading Test</h1>
       <nav>
         <ul>

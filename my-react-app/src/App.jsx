@@ -1,6 +1,6 @@
-import Card from './components/Card.jsx';
-import Footer from './components/Footer.jsx';
-import Header from './components/Header.jsx';
+import Card from './components/Card/Card.jsx';
+import Footer from './components/Footer/Footer.jsx';
+import Header from './components/Header/Header.jsx';
 
 function App() {
   const people = [
