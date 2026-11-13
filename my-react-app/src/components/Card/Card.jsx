@@ -11,7 +11,10 @@ const Card = ({ title, taskArray, className }) => {
   const lessThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && new Date(taskItem.completeBy) >= today);
   const moreThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) >= new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3)); //neccessary to get full date instead of one day
 
-  
+  console.log('Missed Tasks:', missedTasks);
+  console.log('Less than 3 Days Tasks:', lessThan3DaysTasks);
+  console.log('More than 3 Days Tasks:', moreThan3DaysTasks);
+
   return (
     <div className={`card ${className}`}>
         <h2 className='card-title'>{title}</h2>
