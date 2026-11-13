@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Input.css'
 
-const Input = () => {
-    const [task, setTask] = useState('');
-    const [completeBy, setCompleteBy] = useState('');
-    const [taskArray, setTaskArray] = useState(JSON.parse(localStorage.getItem('taskArray')) || []);
-
-    useEffect(() => {
-        localStorage.setItem('taskArray', JSON.stringify(taskArray));
-    }, [taskArray]);
+const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArray }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
