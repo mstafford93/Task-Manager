@@ -20,13 +20,13 @@ const Card = ({ title, taskArray, className }) => {
         <h2 className='card-title'>{title}</h2>
         <ul className='card-list'>
             {className === 'missed-deadline' && missedTasks.map((taskItem, index) => (
-                <li key={index}>{taskItem.task} - {taskItem.completeBy}</li>
+                <li key={index}><span>{taskItem.task}</span> <span>{taskItem.completeBy}</span></li>
             ))}
             {className === 'less-than-3-days' && lessThan3DaysTasks.map((taskItem, index) => (
-                <li key={index}>{taskItem.task} - {taskItem.completeBy}</li>
+                <li key={index}><span>{taskItem.task}</span> <span>{taskItem.completeBy}</span></li>
             ))}
             {className === 'more-than-3-days' && moreThan3DaysTasks.map((taskItem, index) => (
-                <li key={index}>{taskItem.task} - {taskItem.completeBy}</li>
+                <li key={index}><span>{taskItem.task}</span> <span>{taskItem.completeBy}</span></li>
             ))}
         </ul>
     </div>
