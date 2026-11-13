@@ -10,7 +10,7 @@ const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArr
             return; //Stops empty task or completeBy from being added to the array
         }
         if (completeBy < new Date().toISOString().split('T')[0]) {
-            alert('Date must be after today'); //stps user from entering a date that is before today
+            alert('Date must be after today'); //stops user from entering a date that is before today
             return;
         }
         setTaskArray([...taskArray, {task, completeBy}]);

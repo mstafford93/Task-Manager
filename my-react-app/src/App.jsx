@@ -19,9 +19,9 @@ function App() {
       <Header />
       <Input task={task} setTask={setTask} completeBy={completeBy} setCompleteBy={setCompleteBy} taskArray={taskArray} setTaskArray={setTaskArray} />
       <div className='card-container'>
-        <Card title="Missed Deadline" />
-        <Card title="Less than a day" />
-        <Card title="More than a day" />
+        <Card title="Missed Deadline" className="missed-deadline" taskArray={taskArray} />
+        <Card title="Less than 3 day" className="less-than-3-day" taskArray={taskArray} />
+        <Card title="More than 3 day" className="more-than-3-day" taskArray={taskArray} />
       </div>
       <Footer />
     </>
