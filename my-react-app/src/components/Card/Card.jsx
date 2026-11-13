@@ -1,13 +1,15 @@
 import React from 'react'
 import './Card.css'
 
-const Card = ({ people }) => {
+const Card = ({ title }) => {
   return (
     <div className='card'>
-        <img className="card-image" src="https://avatars.githubusercontent.com/u/153217779?v=4" alt="picture of Me" />
-        <h2 className='card-title'>{people.name}</h2>
-        <p className='card-desc'>{people.email}</p>
-        <p className='card-desc'>{people.isStudent ? 'Student' : 'Not a Student'}</p>
+        <h2 className='card-title'>{title}</h2>
+        <ul className='card-list'>
+            <li className='card-item'>Item 1</li>
+            <li className='card-item'>Item 2</li>
+            <li className='card-item'>Item 3</li>
+        </ul>
     </div>
   )
 }
