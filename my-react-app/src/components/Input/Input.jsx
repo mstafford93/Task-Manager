@@ -13,13 +13,14 @@ const Input = () => {
             return; //Stops empty task or completeBy from being added to the array
         }
         setTaskArray([...taskArray, {task, completeBy}]);
-        setTask('');
-        setCompleteBy('');
+        setTask(''); //resets tasks after submit
+        setCompleteBy(''); //resets completeBy after submit
         console.log(taskArray);
     };
 
     return (
         <div className='input'>
+            <div>
             <label htmlFor="task">Task:</label>
             <input 
                 type="text"
@@ -27,12 +28,15 @@ const Input = () => {
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
             />
+            </div>
+            <div>
             <label htmlFor="completeBy">Complete By:</label>
             <input 
                 type="date" 
                 value={completeBy}
                 onChange={(e) => setCompleteBy(e.target.value)}
             />
+            </div>
             <button onClick={handleSubmit}>Submit</button>
         </div>
     )
