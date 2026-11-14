@@ -1,8 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Card.css'
 
-const Card = ({ title, taskArray, className, classNameToggle }) => {
+const Card = ({ taskArray, classNameToggle }) => {
 
+    const [title, setTitle] = useState('');
+
+    useEffect(()=>{
+        if (classNameToggle === 'missed-deadline') {
+        setTitle('Missed Deadline');
+    } else if (classNameToggle === 'less-than-3-days') {
+        setTitle('Less than 3 Days');
+    } else if (classNameToggle === 'more-than-3-days') {
+        setTitle('More than 3 Days');
+    } else {
+        setTitle('');
+    }
+    }, [classNameToggle])
+    
     const today = new Date();
     //console.log(today.getDate());
     //console.log(today.getDate()+ 3); //Increments Days

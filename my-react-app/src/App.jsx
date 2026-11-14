@@ -33,7 +33,7 @@ function App() {
       <Input task={task} setTask={setTask} completeBy={completeBy} setCompleteBy={setCompleteBy} taskArray={taskArray} setTaskArray={setTaskArray} />
       <Navigation handleClick={handleClick} />
       <div className='card-container'>
-        <Card title="Test" taskArray={taskArray} classNameToggle={classNameToggle}/>
+        <Card taskArray={taskArray} classNameToggle={classNameToggle}/>
       </div>
       <Footer />
     </>
