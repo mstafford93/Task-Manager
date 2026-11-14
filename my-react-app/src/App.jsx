@@ -15,10 +15,14 @@ function App() {
     localStorage.setItem('taskArray', JSON.stringify(taskArray));
   }, [taskArray]);
 
+
   function handleClick(e) {
         const className = e.target.className;
-        console.log(`Button clicked: ${className}`);
+        const card = document.querySelector(`.card`);
+        card.classList.remove("missed-deadline", "less-than-3-days", "more-than-3-days");
+        card.classList.toggle(className);
     }
+    
 
   return (
     <>
@@ -26,9 +30,7 @@ function App() {
       <Input task={task} setTask={setTask} completeBy={completeBy} setCompleteBy={setCompleteBy} taskArray={taskArray} setTaskArray={setTaskArray} />
       <Navigation handleClick={handleClick} />
       <div className='card-container'>
-        <Card title="Missed Deadline" className="missed-deadline" taskArray={taskArray} />
-        <Card title="Less than 3 days" className="less-than-3-days" taskArray={taskArray} />
-        <Card title="More than 3 days" className="more-than-3-days" taskArray={taskArray} />
+        <Card title="Test" taskArray={taskArray}/>
       </div>
       <Footer />
     </>

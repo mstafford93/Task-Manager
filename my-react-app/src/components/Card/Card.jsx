@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Card.css'
 
-const Card = ({ title, taskArray, className }) => {
+const Card = ({ title, taskArray }) => {
 
   const today = new Date();
   //console.log(today.getDate());
@@ -16,21 +16,24 @@ const Card = ({ title, taskArray, className }) => {
       return date.toLocaleDateString("en-GB");
     }
 
+let className = document.querySelector(`.card`) ? document.querySelector(`.card`).classList.value : ''; // Get the class name of the card element
+  //console.log(className);
   //console.log('Missed Tasks:', missedTasks);
   //console.log('Less than 3 Days Tasks:', lessThan3DaysTasks);
   //console.log('More than 3 Days Tasks:', moreThan3DaysTasks);
 
+
   return (
-    <div className={`card ${className}`}>
+    <div className={`card`}>
         <h2 className='card-title'>{title}</h2>
         <ul className='card-list'>
-            {className === 'missed-deadline' && missedTasks.map((taskItem, index) => (
+            {className === 'card missed-deadline' && missedTasks.map((taskItem, index) => (
                 <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)}</span></li>
             ))}
-            {className === 'less-than-3-days' && lessThan3DaysTasks.map((taskItem, index) => (
+            {className === 'card less-than-3-days' && lessThan3DaysTasks.map((taskItem, index) => (
                 <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)}</span></li>
             ))}
-            {className === 'more-than-3-days' && moreThan3DaysTasks.map((taskItem, index) => (
+            {className === 'card more-than-3-days' && moreThan3DaysTasks.map((taskItem, index) => (
                 <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)}</span></li>
             ))}
         </ul>
