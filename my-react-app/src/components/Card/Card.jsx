@@ -4,8 +4,8 @@ import './Card.css'
 const Card = ({ title, taskArray, className }) => {
 
   const today = new Date();
-  console.log(today.getDate());
-  console.log(today.getDate()+ 3); //Increments Days
+  //console.log(today.getDate());
+  //console.log(today.getDate()+ 3); //Increments Days
   
   const missedTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < today);
   const lessThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && new Date(taskItem.completeBy) >= today);
@@ -16,9 +16,9 @@ const Card = ({ title, taskArray, className }) => {
       return date.toLocaleDateString("en-GB");
     }
 
-  console.log('Missed Tasks:', missedTasks);
-  console.log('Less than 3 Days Tasks:', lessThan3DaysTasks);
-  console.log('More than 3 Days Tasks:', moreThan3DaysTasks);
+  //console.log('Missed Tasks:', missedTasks);
+  //console.log('Less than 3 Days Tasks:', lessThan3DaysTasks);
+  //console.log('More than 3 Days Tasks:', moreThan3DaysTasks);
 
   return (
     <div className={`card ${className}`}>
