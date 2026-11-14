@@ -25,8 +25,6 @@ function App() {
         card.classList.toggle(className);
         console.log('Class Name:', classNameToggle);
     }
-
-    let className = document.querySelector(`.card`) ? document.querySelector(`.card`).classList.value : ''; // Get the class name of the card element
     
 
   return (
@@ -35,7 +33,7 @@ function App() {
       <Input task={task} setTask={setTask} completeBy={completeBy} setCompleteBy={setCompleteBy} taskArray={taskArray} setTaskArray={setTaskArray} />
       <Navigation handleClick={handleClick} />
       <div className='card-container'>
-        <Card title="Test" taskArray={taskArray} className={className} classNameToggle={classNameToggle}/>
+        <Card title="Test" taskArray={taskArray} classNameToggle={classNameToggle}/>
       </div>
       <Footer />
     </>
