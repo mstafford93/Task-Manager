@@ -3,8 +3,8 @@
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgb(82, 82, 247);
   padding: 20px;
-  margin: 10px;
-  min-width: 25vw;
+  margin-top: 0px;
+  min-width: 70vw;
   display: inline-block;
   transition: all 1s ease-in-out;
   min-height: 40vh;
