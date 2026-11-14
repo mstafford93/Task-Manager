@@ -1,0 +1,11 @@
+.navigation {
+    display: flex;
+    justify-content: center;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-bottom: none;
+    border-top-right-radius: 10px;
+}

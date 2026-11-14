@@ -1,10 +1,10 @@
 .card {
-  border: 1px solid rgb(0, 0, 148);
+  border: 1px solid black;
+  border-top: none;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px rgb(82, 82, 247);
   padding: 20px;
   margin-top: 0px;
-  min-width: 70vw;
+  min-width: 95%;
   display: inline-block;
   transition: all 1s ease-in-out;
   min-height: 40vh;
