@@ -42,18 +42,25 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
 
   function handleDelete(taskId){
         const newTasks = taskArray.filter((task) => task.taskId !== taskId);
-        setTaskArray(newTasks);
-        
-        
-        
+        setTaskArray(newTasks);         
     }
+
+    function handleComplete(targetId) {
+    setTaskArray((prevTasks) =>
+      prevTasks.map((task) =>
+        task.taskId === targetId
+          ? { ...task, isCompleted: true }
+          : task // Returns remaining unchanged
+      )
+    );
+  };
 
   return (
         <div className={`card`}>
             <h2 className='card-title'>{title}</h2>
             <ul className='card-list'>
                 {classNameToggle === 'missed-deadline' && missedTasks.map((taskItem, index) => (
-                    <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)} <i class="fa fa-check"></i> {taskItem.taskId} {taskItem.id} <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
+                    <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
                 ))}
                 {classNameToggle === 'less-than-3-days' && lessThan3DaysTasks.map((taskItem, index) => (
                     <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check"></i> <i class="fa fa-trash"></i></span></li>
