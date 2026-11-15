@@ -56,6 +56,16 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
     );
   };
 
+  function handleUndo(targetId) {
+    setTaskArray((prevTasks) =>
+      prevTasks.map((task) =>
+        task.taskId === targetId
+          ? { ...task, isCompleted: false }
+          : task // Returns remaining unchanged
+      )
+    );
+  }
+
   return (
         <div className={`card`}>
             <h2 className='card-title'>{title}</h2>
@@ -70,7 +80,7 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
                     <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
                 ))}
                 {classNameToggle === 'completed' && completed.map((taskItem, index) => (
-                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-rotate-left" onClick={() => handleUndo(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
                 ))}
             </ul>
         </div>
