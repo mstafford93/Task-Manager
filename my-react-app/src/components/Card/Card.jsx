@@ -14,8 +14,10 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
         setTitle('Less than 3 Days');
     } else if (classNameToggle === 'more-than-3-days') {
         setTitle('More than 3 Days');
-    } else {
+    } else if (classNameToggle === 'completed'){
         setTitle('Completed');
+    } else {
+        setTitle('Welcome to your Task Manager')
     }
     }, [classNameToggle]) //Prevents too many rerenders
     

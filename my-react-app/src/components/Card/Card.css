@@ -32,6 +32,11 @@
   color: black;
 }
 
+.completed {
+  background-color: rgba(47, 226, 2, 0.3);
+  color: black;
+}
+
 .card-list {
   list-style-type: none;
   padding: 0;
