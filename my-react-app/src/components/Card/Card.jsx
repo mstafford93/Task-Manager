@@ -45,9 +45,7 @@ const Card = ({ taskArray, classNameToggle }) => {
             <h2 className='card-title'>{title}</h2>
             <ul className='card-list'>
                 {classNameToggle === 'missed-deadline' && missedTasks.map((taskItem, index) => (
-                    <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)} 
-                    
-                    </span></li>
+                    <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)}<i class="fa fa-check"></i></span></li>
                 ))}
                 {classNameToggle === 'less-than-3-days' && lessThan3DaysTasks.map((taskItem, index) => (
                     <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)}</span></li>
