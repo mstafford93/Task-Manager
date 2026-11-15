@@ -15,7 +15,7 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
     } else if (classNameToggle === 'more-than-3-days') {
         setTitle('More than 3 Days');
     } else {
-        setTitle('');
+        setTitle('Completed');
     }
     }, [classNameToggle]) //Prevents too many rerenders
     
@@ -26,6 +26,7 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
     const missedTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < today && taskItem.isCompleted === false);
     const lessThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && new Date(taskItem.completeBy) >= today && taskItem.isCompleted === false);
     const moreThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) >= new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && taskItem.isCompleted === false); //neccessary to get full date instead of one day
+    const completed = taskArray.filter(taskItem => taskItem.isCompleted === true);
 
     function GbDate(dateString) {
         const date = new Date(dateString);
@@ -67,6 +68,9 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
                 ))}
                 {classNameToggle === 'more-than-3-days' && moreThan3DaysTasks.map((taskItem, index) => (
                     <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
+                ))}
+                {classNameToggle === 'completed' && completed.map((taskItem, index) => (
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
                 ))}
             </ul>
         </div>

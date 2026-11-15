@@ -14,6 +14,9 @@ const Navigation = ({ handleClick }) => {
             <button className="more-than-3-days" onClick={handleClick}>
                 More than 3 days
             </button>
+            <button className="completed" onClick={handleClick}>
+                Completed
+            </button>
         </div>
     )
 }

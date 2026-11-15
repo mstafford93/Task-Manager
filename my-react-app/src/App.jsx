@@ -28,7 +28,7 @@ function App() {
         card.classList.remove("missed-deadline", "less-than-3-days", "more-than-3-days");
         setClassNameToggle(className);
         card.classList.toggle(className);
-        //console.log('Class Name:', classNameToggle);
+        //console.log('Class Name:', classNameToggle); //Works but updates after click showing previous button click
     }
 
     
