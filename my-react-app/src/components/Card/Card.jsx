@@ -23,9 +23,9 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
     //console.log(today.getDate());
     //console.log(today.getDate()+ 3); //Increments Days
 
-    const missedTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < today);
-    const lessThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && new Date(taskItem.completeBy) >= today);
-    const moreThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) >= new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3)); //neccessary to get full date instead of one day
+    const missedTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < today && taskItem.isCompleted === false);
+    const lessThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && new Date(taskItem.completeBy) >= today && taskItem.isCompleted === false);
+    const moreThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) >= new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && taskItem.isCompleted === false); //neccessary to get full date instead of one day
 
     function GbDate(dateString) {
         const date = new Date(dateString);
@@ -63,10 +63,10 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
                     <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
                 ))}
                 {classNameToggle === 'less-than-3-days' && lessThan3DaysTasks.map((taskItem, index) => (
-                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check"></i> <i class="fa fa-trash"></i></span></li>
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
                 ))}
                 {classNameToggle === 'more-than-3-days' && moreThan3DaysTasks.map((taskItem, index) => (
-                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check"></i> <i class="fa fa-trash"></i></span></li>
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
                 ))}
             </ul>
         </div>
