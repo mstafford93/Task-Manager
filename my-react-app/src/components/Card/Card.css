@@ -14,20 +14,21 @@
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 1rem;
   transition: all 1s ease-in-out;
+  font-style: oblique;
 }
 
 .missed-deadline {
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(255, 0, 0, 25%);
   color: black;
 }
 
 .less-than-3-days {
-  background-color: rgb(230, 230, 1);
+  background-color: rgb(230, 230, 1, 30%);
   color: black;
 }
 
 .more-than-3-days {
-  background-color: rgb(226, 129, 2);
+  background-color: rgb(226, 129, 2, 30%);
   color: black;
 }
 
@@ -39,7 +40,7 @@
 
 .card-list li {
   margin-bottom: 0.5rem;
-  padding: 0.5rem 0.5rem 2rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   border-bottom: 1px solid black;
   justify-content: space-between;
   display: flex;
