@@ -3,7 +3,7 @@ import './Card.css'
 
 
 
-const Card = ({ taskArray, classNameToggle }) => {
+const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
 
     const [title, setTitle] = useState('');
 
@@ -32,6 +32,7 @@ const Card = ({ taskArray, classNameToggle }) => {
         return date.toLocaleDateString("en-GB");
     }
 
+
  
 
   //console.log(className);
@@ -39,19 +40,26 @@ const Card = ({ taskArray, classNameToggle }) => {
   //console.log('Less than 3 Days Tasks:', lessThan3DaysTasks);
   //console.log('More than 3 Days Tasks:', moreThan3DaysTasks);
 
+  function handleDelete(taskId){
+        const newTasks = taskArray.filter((task) => task.taskId !== taskId);
+        setTaskArray(newTasks);
+        
+        
+        
+    }
 
   return (
         <div className={`card`}>
             <h2 className='card-title'>{title}</h2>
             <ul className='card-list'>
                 {classNameToggle === 'missed-deadline' && missedTasks.map((taskItem, index) => (
-                    <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)}<i class="fa fa-check"></i></span></li>
+                    <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)} <i class="fa fa-check"></i> {taskItem.taskId} {taskItem.id} <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
                 ))}
                 {classNameToggle === 'less-than-3-days' && lessThan3DaysTasks.map((taskItem, index) => (
-                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)}</span></li>
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check"></i> <i class="fa fa-trash"></i></span></li>
                 ))}
                 {classNameToggle === 'more-than-3-days' && moreThan3DaysTasks.map((taskItem, index) => (
-                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)}</span></li>
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check"></i> <i class="fa fa-trash"></i></span></li>
                 ))}
             </ul>
         </div>

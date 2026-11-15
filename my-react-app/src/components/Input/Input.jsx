@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Input.css'
 
-const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArray }) => {
+const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArray, taskId, setTaskId }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,9 +13,10 @@ const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArr
             alert('Date must be after today'); //stops user from entering a date that is before today
             return;
         }
-        setTaskArray([...taskArray, {task, completeBy}]);
+        setTaskArray([...taskArray, {task, completeBy, isCompleted: false, taskId}]); //create and set isCompleted to false
         setTask(''); //resets tasks after submit
         setCompleteBy(''); //resets completeBy after submit
+        setTaskId((prev) => prev + 1)
         console.log(taskArray);
     };
 

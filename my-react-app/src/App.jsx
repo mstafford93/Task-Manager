@@ -11,10 +11,15 @@ function App() {
   const [completeBy, setCompleteBy] = useState('');
   const [taskArray, setTaskArray] = useState(JSON.parse(localStorage.getItem('taskArray')) || []);
   const [classNameToggle, setClassNameToggle] = useState('');
+  const [taskId, setTaskId] = useState(+localStorage.getItem('taskId') || 0); // Gets previous or 0
+
+  useEffect(() => {
+    localStorage.setItem('taskId', JSON.stringify(taskId));
+  },[taskId]); //seperate taskId for when filetering days still able to delete
 
   useEffect(() => {
     localStorage.setItem('taskArray', JSON.stringify(taskArray));
-  }, [taskArray]);
+  }, [taskArray]); //sets localstorage every time array is updated
 
 
   function handleClick(e) {
@@ -23,17 +28,18 @@ function App() {
         card.classList.remove("missed-deadline", "less-than-3-days", "more-than-3-days");
         setClassNameToggle(className);
         card.classList.toggle(className);
-        console.log('Class Name:', classNameToggle);
+        //console.log('Class Name:', classNameToggle);
     }
+
     
 
   return (
     <>
       <Header />
-      <Input task={task} setTask={setTask} completeBy={completeBy} setCompleteBy={setCompleteBy} taskArray={taskArray} setTaskArray={setTaskArray} />
+      <Input taskId={taskId} setTaskId={setTaskId} task={task} setTask={setTask} completeBy={completeBy} setCompleteBy={setCompleteBy} taskArray={taskArray} setTaskArray={setTaskArray} />
       <Navigation handleClick={handleClick} />
       <div className='card-container'>
-        <Card taskArray={taskArray} classNameToggle={classNameToggle}/>
+        <Card taskArray={taskArray} setTaskArray={setTaskArray} classNameToggle={classNameToggle} />
       </div>
       <Footer />
     </>

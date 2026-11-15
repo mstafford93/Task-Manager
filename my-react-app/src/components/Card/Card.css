@@ -62,4 +62,12 @@
   color: white;
 }
 
+.fa-check:hover {
+  color: green;
+}
+
+.fa-trash:hover {
+  color: red;
+}
+
 
