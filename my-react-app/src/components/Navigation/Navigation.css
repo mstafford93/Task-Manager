@@ -1,6 +1,6 @@
 .navigation {
     display: flex;
-    justify-content: center;
+    margin-left: 1.5rem;
 }
 
 .navigation button {
@@ -8,4 +8,10 @@
     border: 1px solid black;
     border-bottom: none;
     border-top-right-radius: 10px;
+}
+
+@media (max-width: 750px) {
+    .navigation {
+        margin-left: 0;
+    }
 }
