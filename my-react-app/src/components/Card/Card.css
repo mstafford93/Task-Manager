@@ -7,7 +7,9 @@
   min-width: 95%;
   display: inline-block;
   transition: all 0.3s ease-in-out;
-  min-height: 40vh;
+  min-height: 70vh;
+  background-color: rgba(0, 0, 255, 0.452);
+  margin-bottom: 1rem;
 }
 
 .card-title {
@@ -53,16 +55,24 @@
 
 .missed-deadline li:hover {
   background-color: rgb(172, 2, 2);
+  border-radius: 8px;
   color: white;
 }
 
 .less-than-3-days li:hover {
   background-color: rgb(175, 175, 1);
+  border-radius: 8px;
   color: white;
 }
 
 .more-than-3-days li:hover {
   background-color: rgb(128, 73, 2);
+  border-radius: 8px;
+  color: white;
+}
+
+.completed li:hover {
+  background-color: rgb(37, 180, 2);
   border-radius: 8px;
   color: white;
 }
