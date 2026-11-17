@@ -11,11 +11,11 @@ function App() {
   const [completeBy, setCompleteBy] = useState('');
   const [taskArray, setTaskArray] = useState(JSON.parse(localStorage.getItem('taskArray')) || []);
   const [classNameToggle, setClassNameToggle] = useState('');
-  const [taskId, setTaskId] = useState(+localStorage.getItem('taskId') || 0); // Gets previous or 0
+  const [taskId, setTaskId] = useState(+localStorage.getItem('taskId') || 0); // adding plus to recogises as number
 
   useEffect(() => {
     localStorage.setItem('taskId', JSON.stringify(taskId));
-  },[taskId]); //seperate taskId for when filetering days still able to delete
+  },[taskId]); //seperate taskId to maintain number after refresh
 
   useEffect(() => {
     localStorage.setItem('taskArray', JSON.stringify(taskArray));

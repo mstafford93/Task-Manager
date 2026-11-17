@@ -43,8 +43,8 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
   //console.log('Less than 3 Days Tasks:', lessThan3DaysTasks);
   //console.log('More than 3 Days Tasks:', moreThan3DaysTasks);
 
-  function handleDelete(taskId){
-        const newTasks = taskArray.filter((task) => task.taskId !== taskId);
+  function handleDelete(targetId){
+        const newTasks = taskArray.filter((task) => task.taskId !== targetId);
         setTaskArray(newTasks);         
     }
 

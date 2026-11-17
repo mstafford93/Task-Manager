@@ -16,8 +16,8 @@ const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArr
         setTaskArray([...taskArray, {task, completeBy, isCompleted: false, taskId}]); //create and set isCompleted to false
         setTask(''); //resets tasks after submit
         setCompleteBy(''); //resets completeBy after submit
-        setTaskId((prev) => prev + 1)
-        console.log(taskArray);
+        setTaskId((prev) => prev + 1) //moves taskId by plus one
+        //console.log(taskArray);
     };
 
     return (
