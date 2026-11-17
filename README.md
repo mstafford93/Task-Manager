@@ -4,7 +4,7 @@
 
 ![Screenshot IVC-Home](https://github.com/mstafford93/Task-Manager/blob/main/my-react-app/src/assets/images/readme-img.png?raw=true)
 
-> Sheenshot before to be deleted section
+> Screenshot before to be deleted section
 
 
 
