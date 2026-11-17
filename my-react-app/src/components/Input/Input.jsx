@@ -23,7 +23,7 @@ const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArr
     return (
         <div className='input'>
             <div>
-            <label htmlFor="task">Task:</label>
+            <label>Task:</label>
             <input 
                 type="text"
                 placeholder="Enter task..." 
@@ -32,7 +32,7 @@ const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArr
             />
             </div>
             <div>
-            <label htmlFor="completeBy">Complete By:</label>
+            <label>Complete By:</label>
             <input 
                 type="date" 
                 value={completeBy}
