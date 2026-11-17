@@ -16,6 +16,8 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
         setTitle('More than 3 Days');
     } else if (classNameToggle === 'completed'){
         setTitle('Completed');
+    } else if (classNameToggle === 'deleted'){
+        setTitle('Deleted Tasks');
     } else {
         setTitle('Welcome to your Task Manager')
     }
@@ -25,10 +27,11 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
     //console.log(today.getDate());
     //console.log(today.getDate()+ 3); //Increments Days
 
-    const missedTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < today && taskItem.isCompleted === false);
-    const lessThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && new Date(taskItem.completeBy) >= today && taskItem.isCompleted === false);
-    const moreThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) >= new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && taskItem.isCompleted === false); //neccessary to get full date instead of one day
-    const completed = taskArray.filter(taskItem => taskItem.isCompleted === true);
+    const missedTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < today && taskItem.isCompleted === false && taskItem.isDeleted === false);
+    const lessThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) < new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && new Date(taskItem.completeBy) >= today && taskItem.isCompleted === false && taskItem.isDeleted === false);
+    const moreThan3DaysTasks = taskArray.filter(taskItem => new Date(taskItem.completeBy) >= new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3) && taskItem.isCompleted === false && taskItem.isDeleted === false); //neccessary to get full date instead of one day
+    const completed = taskArray.filter(taskItem => taskItem.isCompleted === true && taskItem.isDeleted === false);
+    const deleted = taskArray.filter(taskItem => taskItem.isDeleted === true);
 
     function GbDate(dateString) {
         const date = new Date(dateString);
@@ -43,10 +46,20 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
   //console.log('Less than 3 Days Tasks:', lessThan3DaysTasks);
   //console.log('More than 3 Days Tasks:', moreThan3DaysTasks);
 
-  function handleDelete(targetId){
+  function handlePremDelete(targetId){
         const newTasks = taskArray.filter((task) => task.taskId !== targetId);
         setTaskArray(newTasks);         
-    }
+    };
+
+    function handleToBeDeleted(targetId) {
+    setTaskArray((prevTasks) =>
+      prevTasks.map((task) =>
+        task.taskId === targetId
+          ? { ...task, isDeleted: true }
+          : task // Returns remaining unchanged
+      )
+    );
+  };
 
     function handleComplete(targetId) {
     setTaskArray((prevTasks) =>
@@ -58,11 +71,21 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
     );
   };
 
-  function handleUndo(targetId) {
+  function handleCompletedUndo(targetId) {
     setTaskArray((prevTasks) =>
       prevTasks.map((task) =>
         task.taskId === targetId
           ? { ...task, isCompleted: false }
+          : task // Returns remaining unchanged
+      )
+    );
+  }
+
+  function handleDeletedUndo(targetId) {
+    setTaskArray((prevTasks) =>
+      prevTasks.map((task) =>
+        task.taskId === targetId
+          ? { ...task, isDeleted: false }
           : task // Returns remaining unchanged
       )
     );
@@ -73,16 +96,19 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
             <h2 className='card-title'>{title}</h2>
             <ul className='card-list'>
                 {classNameToggle === 'missed-deadline' && missedTasks.map((taskItem, index) => (
-                    <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
+                    <li key={index}><span><strong>Task: </strong>{taskItem.task}</span> <span><strong>Complete By: </strong>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleToBeDeleted(taskItem.taskId)}></i></span></li>
                 ))}
                 {classNameToggle === 'less-than-3-days' && lessThan3DaysTasks.map((taskItem, index) => (
-                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleToBeDeleted(taskItem.taskId)}></i></span></li>
                 ))}
                 {classNameToggle === 'more-than-3-days' && moreThan3DaysTasks.map((taskItem, index) => (
-                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleToBeDeleted(taskItem.taskId)}></i></span></li>
                 ))}
                 {classNameToggle === 'completed' && completed.map((taskItem, index) => (
-                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-rotate-left" onClick={() => handleUndo(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleDelete(taskItem.taskId)}></i></span></li>
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-rotate-left" onClick={() => handleCompletedUndo(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handleToBeDeleted(taskItem.taskId)}></i></span></li>
+                ))}
+                {classNameToggle === 'deleted' && deleted.map((taskItem, index) => (
+                    <li key={index}><span>{taskItem.task}</span> <span>{GbDate(taskItem.completeBy)} <i class="fa fa-rotate-left" onClick={() => handleDeletedUndo(taskItem.taskId)}></i> <i class="fa fa-trash" onClick={() => handlePremDelete(taskItem.taskId)}></i></span></li>
                 ))}
             </ul>
         </div>

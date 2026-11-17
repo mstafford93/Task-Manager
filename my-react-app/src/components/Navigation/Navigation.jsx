@@ -17,6 +17,9 @@ const Navigation = ({ handleClick }) => {
             <button className="completed" onClick={handleClick}>
                 Completed
             </button>
+            <button className="deleted" onClick={handleClick}>
+                Deleted Tasks
+            </button>
         </div>
     )
 }
