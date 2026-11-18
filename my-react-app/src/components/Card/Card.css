@@ -39,6 +39,10 @@
   color: black;
 }
 
+.deleted {
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
 .card-list {
   list-style-type: none;
   padding: 0;
