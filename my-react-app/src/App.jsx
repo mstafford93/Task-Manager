@@ -25,7 +25,7 @@ function App() {
   function handleClick(e) {
         const className = e.target.className;
         const card = document.querySelector(`.card`);
-        card.classList.remove("missed-deadline", "less-than-3-days", "more-than-3-days", "completed");
+        card.classList.remove("missed-deadline", "less-than-3-days", "more-than-3-days", "completed", "deleted");
         setClassNameToggle(className);
         card.classList.toggle(className);
         //console.log('Class Name:', classNameToggle); //Works but updates after click showing previous button click
