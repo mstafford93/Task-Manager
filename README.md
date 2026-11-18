@@ -4,6 +4,7 @@
 
 ![Screenshot IVC-Home](https://github.com/mstafford93/Task-Manager/blob/main/my-react-app/src/assets/images/readme-img.png?raw=true)
 
+> Screenshot before to be deleted section
 
 
 
@@ -17,7 +18,7 @@ A self made project with no given instructions. A test of my ability and somethi
 I wanted to create a task manager that help me see when a deadline is approaching, and plan to keep updating, learning and updating my skills.
 The layout is designed to look similar to folder with the buttons on top resembling dividers. 
 <br>
-<strong>In process of creating a Medium blog post to give a deeper dive on my process <a href="https://medium.com/@mgstafford/" target="_blank">Medium Page</a></strong>
+<strong>Blog post with further detail into my thought process <a href="https://medium.com/@mgstafford/task-manager-react-self-learning-922cac41eae8" target="_blank">Medium Blog Post</a></strong>
 
 ## Features
 
@@ -25,6 +26,7 @@ The layout is designed to look similar to folder with the buttons on top resembl
 - Able to check completed tasks, moves to separate viewing field for user.
 - Select which category you want to view and displays in a folder like setup.
 - Ability to delete and undo completed tasks, to anticipate human error and improve usability.
+- <strong>New</strong>  - Deleted items moved to separate section allowing user to undo action if there is human error.
 
   
 ## Technologies
