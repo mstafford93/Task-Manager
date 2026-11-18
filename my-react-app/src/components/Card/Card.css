@@ -53,28 +53,38 @@
   display: flex;
 }
 
+.label {
+  background-color: rgba(128, 128, 128, 0.25);
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  border-radius: 8px 0 0 8px;
+}
+
 .missed-deadline li:hover {
   background-color: rgb(172, 2, 2);
   border-radius: 8px;
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 .less-than-3-days li:hover {
   background-color: rgb(175, 175, 1);
   border-radius: 8px;
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 .more-than-3-days li:hover {
   background-color: rgb(128, 73, 2);
   border-radius: 8px;
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 .completed li:hover {
   background-color: rgb(37, 180, 2);
   border-radius: 8px;
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 .fa-check:hover {
