@@ -63,6 +63,10 @@
   border-radius: 8px 0 0 8px;
 }
 
+.card-list i {
+  margin-left: 0.5rem;
+}
+
 .missed-deadline li:hover {
   background-color: rgb(172, 2, 2);
   border-radius: 8px;
