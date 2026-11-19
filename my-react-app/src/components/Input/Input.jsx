@@ -28,7 +28,7 @@ const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArr
                 return 1;
             }
         }))}, [handleSubmit]
-    )
+    ) //Sorts by date only after render Card component
 
     return (
         <div className='input'>

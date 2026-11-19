@@ -95,6 +95,13 @@
   transition: all 0.3s ease-in-out;
 }
 
+.deleted li:hover {
+  background-color: rgb(128, 128, 128);
+  border-radius: 8px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
 .fa-check:hover {
   color: green;
 }
