@@ -20,6 +20,16 @@ const Input = ({ task, setTask, completeBy, setCompleteBy, taskArray, setTaskArr
         //console.log(taskArray);
     };
 
+    useEffect(() => {
+        setTaskArray(taskArray.sort((objectA, objectB) => {
+            if(objectA.completeBy < objectB.completeBy){
+                return -1;
+            } else {
+                return 1;
+            }
+        }))}, [handleSubmit]
+    )
+
     return (
         <div className='input'>
             <div>
