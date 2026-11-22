@@ -2,12 +2,9 @@
 
 ## Preview
 
-![Screenshot IVC-Home](https://github.com/mstafford93/Task-Manager/blob/main/my-react-app/src/assets/images/readme-img.png?raw=true)
+![Screenshot IVC-Home](https://github.com/mstafford93/Task-Manager/blob/main/my-react-app/src/assets/images/readme-img-deleteTasks.png?raw=true)
 
-> Screenshot before to be deleted section
-
-
-
+> Previous images found in `src > assets > images`
 
 <br>
 <a href="https://task-manager-flax-nu.vercel.app" target="_blank">Live Link Here</a>
@@ -23,10 +20,12 @@ The layout is designed to look similar to folder with the buttons on top resembl
 ## Features
 
 - Input date and task into a task manager, updates into four categories. Missed deadlines, Less than 3 days, More than 3 days, and Completed.
+- User unable to add date before the date they input
 - Able to check completed tasks, moves to separate viewing field for user.
 - Select which category you want to view and displays in a folder like setup.
 - Ability to delete and undo completed tasks, to anticipate human error and improve usability.
 - <strong>New</strong>  - Deleted items moved to separate section allowing user to undo action if there is human error.
+- <strong>New</strong>  - Delete all added to deleted items section allowing easier user experience.
 
   
 ## Technologies
