@@ -51,6 +51,11 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
         setTaskArray(newTasks);         
     };
 
+  function handleDeleteAllIsDeleted() {
+    const deleteDeleted = taskArray.filter((task) => !task.isDeleted);
+    console.log(deleteDeleted);
+  }
+
     function handleToBeDeleted(targetId) {
     setTaskArray((prevTasks) =>
       prevTasks.map((task) =>
@@ -93,7 +98,7 @@ const Card = ({ taskArray, classNameToggle, setTaskArray }) => {
 
   return (
         <div className={`card`}>
-            <h2 className='card-title'>{title}</h2>
+            {title === 'Deleted Tasks' ? <h2 className='card-title'>{title} <span>Delete All <i className="fa fa-trash"></i></span></h2> : <h2 className='card-title'>{title}</h2>}
             <ul className='card-list'>
                 {classNameToggle === 'missed-deadline' && missedTasks.map((taskItem, index) => (
                     <li key={index}><span>{taskItem.task}</span> <span>|<strong className='label'>Complete By:</strong> {GbDate(taskItem.completeBy)} <i className="fa fa-check" onClick={() => handleComplete(taskItem.taskId)}></i> <i className="fa fa-trash" onClick={() => handleToBeDeleted(taskItem.taskId)}></i></span></li>
