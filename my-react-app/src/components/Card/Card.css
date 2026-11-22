@@ -21,6 +21,10 @@
   justify-content: space-between;
 }
 
+.card-title span {
+  font-size: medium;
+}
+
 .missed-deadline {
   background-color: rgba(255, 0, 0, 25%);
   color: black;
