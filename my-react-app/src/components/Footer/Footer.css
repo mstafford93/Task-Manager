@@ -17,3 +17,9 @@ footer a:hover {
     color: aqua;
 }
 
+@media (max-width: 750px) {
+    /*Removes text off links on smaller screens to stop overflow of text*/
+    footer span {
+        display: none;
+    }
+}
