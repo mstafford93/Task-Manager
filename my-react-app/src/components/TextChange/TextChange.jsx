@@ -7,8 +7,8 @@ const TextChange = () => {
     const changeFont = (e) => {
         const body = document.body;
         setFontFamily(e.target.value);
-        body.classList.add(fontFamily);
-        
+        body.classList.remove("arial", "verdana", "caveat");
+        body.classList.add(e.target.value);
     }
 
   return (
