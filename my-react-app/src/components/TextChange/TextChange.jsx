@@ -13,7 +13,8 @@ const TextChange = () => {
 
   return (
     <div>
-      <select value={fontFamily} onChange={changeFont}>
+      <label>Font: </label>
+      <select value={fontFamily} onChange={changeFont} className='select'>
         <option value="arial" className='arial'>Arial</option>
         <option value="caveat" className='caveat'>Caveat (cursive)</option>
         <option value="verdana" className='verdana'>Verdana</option>
