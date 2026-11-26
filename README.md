@@ -26,6 +26,7 @@ The layout is designed to look similar to folder with the buttons on top resembl
 - Ability to delete and undo completed tasks, to anticipate human error and improve usability.
 - <strong>New</strong>  - Deleted items moved to separate section allowing user to undo action if there is human error.
 - <strong>New</strong>  - Delete all added to deleted items section allowing easier user experience.
+- <strong>New</strong>  - Start to impliment a font selecter for user preference.
 
   
 ## Technologies
