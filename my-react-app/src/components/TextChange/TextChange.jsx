@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TextChange.css'
 
 const TextChange = () => {
-    const changeFont = () => {
-        
+    const [fontFamily, setFontFamily] = useState("arial");
+    
+    const changeFont = (e) => {
+        const body = document.body;
+        setFontFamily(e.target.value);
+        body.classList.add(fontFamily);
         
     }
 
   return (
     <div>
-      <select name="fontStyle" id="fontStyle">
-        <option value="Arial">Arial</option>
-        <option value="Caveat">Caveat (cursive)</option>
-        <option value="Verdana">Verdana</option>
+      <select value={fontFamily} onChange={changeFont}>
+        <option value="arial" className='arial'>Arial</option>
+        <option value="caveat" className='caveat'>Caveat (cursive)</option>
+        <option value="verdana" className='verdana'>Verdana</option>
       </select>
     </div>
   )
